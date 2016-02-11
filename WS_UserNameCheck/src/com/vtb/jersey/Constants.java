@@ -10,5 +10,5 @@ public class Constants {
 	private static String dbName = "users";
 	public static String dbUrl = "jdbc:mysql://localhost:3306/" + dbName;
 	public static String dbUser = "romal";
-	public static String dbPwd = "password";
+	public static String dbPwd = "root";
 }

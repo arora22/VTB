@@ -1,11 +1,11 @@
 package com.vtb.jersey;
 
-import org.json.simple.JSONObject;
+//import org.json.simple.JSONObject;
 
 import com.sun.jersey.json.impl.reader.JsonFormatException;
 
-//import org.codehaus.jettison.json.JSONException;
-//import org.codehaus.jettison.json.JSONObject;
+import org.codehaus.jettison.json.JSONException;
+import org.codehaus.jettison.json.JSONObject;
 
 
 public class Utility {
@@ -32,7 +32,7 @@ public class Utility {
 		try {
 			obj.put("tag", tag);
 			obj.put("status", new Boolean(status));
-		} catch (JsonFormatException e) {
+		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 		}
 		return obj.toString();
@@ -53,7 +53,7 @@ public class Utility {
 			obj.put("tag", tag);
 			obj.put("status", new Boolean(status));
 			obj.put("error_msg", err_msg);
-		} catch (JsonFormatException e) {
+		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 		}
 		return obj.toString();

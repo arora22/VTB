@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DBConnection {
-	
+
 	@SuppressWarnings("finally")
 	public static Connection createConnection() throws Exception {
 		Connection con = null;
@@ -15,19 +15,19 @@ public class DBConnection {
 			Class.forName(Constants.dbClass);
 			con = DriverManager.getConnection(Constants.dbUrl,
 					Constants.dbUser, Constants.dbPwd);
-			
+
 			System.out.println(Constants.dbUrl);
 			System.out.println("In Try");
-		} catch (Exception e) {
-			System.out.println("In Catch ");
+		} catch (SQLException sqle) {
+			throw sqle;
+		}
+		catch (Exception e) {
 			throw e;
 		} finally {
-			System.out.println("In Final ");
 			return con;
 		}
 	}
 
-	
 	public static boolean checkUnameAvailability(String uname) throws Exception {
 		boolean isUnameAvailable = true;
 		Connection dbConn = null;

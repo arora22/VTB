@@ -7,12 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DBConnection {
-	/**
-	 * Method to create DB Connection     
-	 * 
-	 * @return      
-	 * @throws Exception
-	 */
+	
 	@SuppressWarnings("finally")
 	public static Connection createConnection() throws Exception {
 		Connection con = null;
@@ -20,23 +15,19 @@ public class DBConnection {
 			Class.forName(Constants.dbClass);
 			con = DriverManager.getConnection(Constants.dbUrl,
 					Constants.dbUser, Constants.dbPwd);
+			
+			System.out.println(Constants.dbUrl);
+			System.out.println("In Try");
 		} catch (Exception e) {
+			System.out.println("In Catch ");
 			throw e;
 		} finally {
+			System.out.println("In Final ");
 			return con;
 		}
 	}
 
-	/**
-	 * Method to check whether username already exists in DB or not
-	 * 
-	 * @param uname
-	 * @param pwd
-	 *                 
-	 * @return      
-	 * @throws Exception
-	 *                  
-	 */
+	
 	public static boolean checkUnameAvailability(String uname) throws Exception {
 		boolean isUnameAvailable = true;
 		Connection dbConn = null;
